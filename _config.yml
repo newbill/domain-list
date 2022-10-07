@@ -14,16 +14,32 @@ color:
   sold: gray
 
 # true: 标签模式, false: 文本模式
-badge: false
+badge: true
+
+# 公告
+# url: 可选, title 超链接地址
+# price: 可选，自定义内容，不一定是数字
+tips:
+  - title: 公告一
+    description: 公告内容
+  - title: 公告二
+    description: 公告内容
+  - title: 公告三
+    description: 公告内容
 
 # 域名列表
 # url 可选, domain 超链接地址, 比如议价的话可跳转到自定义的报价页面
 # price 可选，但建议都写上，自定义内容，不一定是数字
 # 非卖品
 reserved-domains:
-  - domain: dai.im
-    url: http://dai.im
-    description: 博客
+  - domain: a.com
+    description: 描述内容
+    price: 非卖品
+  - domain: b.com
+    description: 描述内容
+    price: 非卖品
+  - domain: c.com
+    description: 描述内容
     price: 非卖品
 # 出售中
 onsale-domains:
@@ -36,21 +52,17 @@ onsale-domains:
   - domain: c.com
     description: 描述内容
     price: ￥666
-  - domain: d.com
-    description: 描述内容
-    price: 自定义
 # 已售出
 sold-domains:
-  - domain: e.com
-    description: 暂无
+  - domain: a.com
+    description: 描述内容
     price: 已出售
-
-# 其他说明
-# url: 可选, title 超链接地址
-# price: 可选，自定义内容，不一定是数字
-tips:
-  - title: 友链说明
-    description: 申请加入米表联盟请发送邮件
+  - domain: b.com
+    description: 描述内容
+    price: 已出售
+  - domain: c.com
+    description: 描述内容
+    price: 已出售
 
 # 联系方式
 # url 可选, 超链接地址

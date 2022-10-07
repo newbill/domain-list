@@ -2,7 +2,7 @@
 > 懒人不生产代码，只是代码的搬运工，感谢各位大佬提供的思路。
 
 ## 灵感来源
-- 闲逛`Github`发现了垃圾佬的[简易米表](https://github.com/naiba/domain-portfolio)，觉得这种借助`Github Pages`的方式很不错，同时又收到了[飞飞](http://n.gy)分享的他的米表源码，后来发现应该来自[巧克力-非主流](https://mb.admin.pet/)，于是将以上结合了一下。又加入了自己的一些设计元素，经过了自己的一些修改和调整，于是[懒人米表](http://mi.dai.im)诞生了。最后更进一步，也支持`Vercel`部署了。
+- 闲逛`Github`发现了垃圾佬的[简易米表](https://github.com/naiba/domain-portfolio)，觉得这种借助`Github Pages`的方式很不错，同时又收到了[飞飞](https://n.gy)分享的他的米表源码，后来发现应该来自[巧克力-非主流](https://mb.admin.pet/)，于是将以上结合了一下。又加入了自己的一些设计元素，经过了自己的一些修改和调整，于是[懒人米表](https://midian.vercel.app)诞生了。最后更进一步，也支持`Vercel`部署了。
 
 ## 使用方式
 > 不会使用`Github`的朋友，可以先通读详细步骤里的内容。
@@ -21,8 +21,8 @@
 
 ## 两种效果
 
-- [小标签](https://mi.dai.im)
-- [纯文本](https://mibiao.vercel.app/)
+- [小标签](https://midian.vercel.app)
+- [纯文本](https://mibiao.vercel.app)
 
 ## License
 [MIT](https://github.com/newbill/domain-list/blob/main/LICENSE)

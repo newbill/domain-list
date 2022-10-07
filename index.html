@@ -19,148 +19,179 @@
     <div class="main">
         <!-- 展示信息 -->
         <div class="info">
-            <div><img src="./img/favicon.png" alt="logo"></div>
-            <a href="/" class="default" >{{ site.title }}</a>
+            <img src="./img/favicon.png" alt="logo">
         </div>
 
-        <!-- 盒子列表 -->
-        <div class="boxs">
-        {%- if site.badge == true -%}
-            <!-- 非卖品 -->
-            {%- for domain in site.reserved-domains -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="reserved" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                        </span>
-                        <span class="price">
-                            <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.reserved }}">
-                        </span>
+        <!-- 公告 -->
+        {%- if site.tips -%}
+        <div class="item">
+            <div class="default">公告</div>
+            <hr>
+            <div class="boxs">
+            {%- if site.badge == true -%}
+                {%- for tip in site.tips -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if tip.url -%}{{ tip.url }}{%- else -%}/{%- endif -%}" class="default" {%- if tip.url -%}target="_blank"{%- endif -%}>{{ tip.title }}</a>
+                            </span>
+                            {%- if tip.price -%}
+                            <span class="price">
+                                <img src="https://img.shields.io/badge/{{ tip.price }}-{{ site.color.default }}">
+                            </span>
+                            {%- endif -%}
+                        </div>
+                        <span class="desc default">{{ tip.description }}</span>
                     </div>
-                    <span class="desc reserved">{{ domain.description }}</span>
                 </div>
-            </div>
-            {%- endfor -%}
-            <!-- 出售中 -->
-            {%- for domain in site.onsale-domains -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="onsale" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                        </span>
-                        <span class="price">
-                            <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.onsale }}">
-                        </span>
+                {%- endfor -%}
+            {%- else -%}
+                {%- for tip in site.tips -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if tip.url -%}{{ tip.url }}{%- else -%}/{%- endif -%}" class="default" {%- if tip.url -%}target="_blank"{%- endif -%}>{{ tip.title }}</a>
+                            </span>
+                            {%- if tip.price -%}
+                            <span class="price default">{{ tip.price }}</span>
+                            {%- endif -%}
+                        </div>
+                        <span class="desc default">{{ tip.description }}</span>
                     </div>
-                    <span class="desc onsale">{{ domain.description }}</span>
                 </div>
+                {%- endfor -%}
+            {%- endif -%}
             </div>
-            {%- endfor -%}
-            <!-- 其他说明 -->
-            {%- for tip in site.tips -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if tip.url -%}{{ tip.url }}{%- else -%}/{%- endif -%}" class="default" {%- if tip.url -%}target="_blank"{%- endif -%}>{{ tip.title }}</a>
-                        </span>
-                        {%- if tip.price -%}
-                        <span class="price">
-                            <img src="https://img.shields.io/badge/{{ tip.price }}-{{ site.color.default }}">
-                        </span>
-                        {%- endif -%}
-                    </div>
-                    <span class="desc default">{{ tip.description }}</span>
-                </div>
-            </div>
-            {%- endfor -%}
-        {%- else -%}
-            <!-- 非卖品 -->
-            {%- for domain in site.reserved-domains -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="reserved" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                        </span>
-                        <span class="price reserved">{{ domain.price }}</span>
-                    </div>
-                    <span class="desc reserved">{{ domain.description }}</span>
-                </div>
-            </div>
-            {%- endfor -%}
-            <!-- 出售中 -->
-            {%- for domain in site.onsale-domains -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="onsale" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                        </span>
-                        <span class="price onsale">{{ domain.price }}</span>
-                    </div>
-                    <span class="desc onsale">{{ domain.description }}</span>
-                </div>
-            </div>
-            {%- endfor -%}
-            <!-- 其他说明 -->
-            {%- for tip in site.tips -%}
-            <div class="box">
-                <div class="card">
-                    <div class="title">
-                        <span class="domain">
-                            <a href="{%- if tip.url -%}{{ tip.url }}{%- else -%}/{%- endif -%}" class="default" {%- if tip.url -%}target="_blank"{%- endif -%}>{{ tip.title }}</a>
-                        </span>
-                        {%- if tip.price -%}
-                        <span class="price default">{{ tip.price }}</span>
-                        {%- endif -%}
-                    </div>
-                    <span class="desc default">{{ tip.description }}</span>
-                </div>
-            </div>
-            {%- endfor -%}
+        </div>
         {%- endif -%}
+
+        <!-- 非卖品 -->
+        {%- if site.reserved-domains -%}
+        <div class="item">
+            <div class="reserved">非卖品</div>
+            <hr>
+            <div class="boxs">
+            {%- if site.badge == true -%}
+                {%- for domain in site.reserved-domains -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="reserved" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                            </span>
+                            <span class="price">
+                                <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.reserved }}">
+                            </span>
+                        </div>
+                        <span class="desc reserved">{{ domain.description }}</span>
+                    </div>
+                </div>
+                {%- endfor -%}
+            {%- else -%}
+                {%- for domain in site.reserved-domains -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="reserved" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                            </span>
+                            <span class="price reserved">{{ domain.price }}</span>
+                        </div>
+                        <span class="desc reserved">{{ domain.description }}</span>
+                    </div>
+                </div>
+                {%- endfor -%}
+            {%- endif -%}
+            </div>
         </div>
-        <hr>
-        <div class="boxs">
-          {%- if site.badge == true -%}
-              <!-- 已售出 -->
-              {%- for domain in site.sold-domains -%}
-              <div class="box">
-                  <div class="card">
-                      <div class="title">
-                          <span class="domain deleted">
-                              <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="sold" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                          </span>
-                          <span class="price">
-                              <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.sold }}">
-                          </span>
-                      </div>
-                      <span class="desc sold deleted">{{ domain.description }}</span>
-                  </div>
-              </div>
-              {%- endfor -%}
-          {%- else -%}
-              <!-- 已售出 -->
-              {%- for domain in site.sold-domains -%}
-              <div class="box">
-                  <div class="card">
-                      <div class="title">
-                          <span class="domain deleted">
-                              <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="sold" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
-                          </span>
-                          <span class="price sold deleted">{{ domain.price }}</span>
-                      </div>
-                      <span class="desc sold deleted">{{ domain.description }}</span>
-                  </div>
-              </div>
-              {%- endfor -%}
-          {%- endif -%}
+        {%- endif -%}
+
+        <!-- 出售中 -->
+        {%- if site.onsale-domains -%}
+        <div class="item">
+            <div class="onsale">出售中</div>
+            <hr>
+            <div class="boxs">
+            {%- if site.badge == true -%}
+                {%- for domain in site.onsale-domains -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="onsale" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                            </span>
+                            <span class="price">
+                                <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.onsale }}">
+                            </span>
+                        </div>
+                        <span class="desc onsale">{{ domain.description }}</span>
+                    </div>
+                </div>
+                {%- endfor -%}
+            {%- else -%}
+                {%- for domain in site.onsale-domains -%}
+                <div class="box">
+                    <div class="card">
+                        <div class="title">
+                            <span class="domain">
+                                <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="onsale" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                            </span>
+                            <span class="price onsale">{{ domain.price }}</span>
+                        </div>
+                        <span class="desc onsale">{{ domain.description }}</span>
+                    </div>
+                </div>
+                {%- endfor -%}
+            {%- endif -%}
+            </div>
         </div>
+        {%- endif -%}
+
+        <!-- 已售出 -->
+        {%- if site.sold-domains -%}
+        <div class="item">
+            <div class="sold">已售出</div>
+            <hr>
+            <div class="boxs">
+                {%- if site.badge == true -%}
+                    {%- for domain in site.sold-domains -%}
+                    <div class="box">
+                        <div class="card">
+                            <div class="title">
+                                <span class="domain deleted">
+                                    <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="sold" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                                </span>
+                                <span class="price">
+                                    <img src="https://img.shields.io/badge/{{ domain.price }}-{{ site.color.sold }}">
+                                </span>
+                            </div>
+                            <span class="desc sold deleted">{{ domain.description }}</span>
+                        </div>
+                    </div>
+                    {%- endfor -%}
+                {%- else -%}
+                    {%- for domain in site.sold-domains -%}
+                    <div class="box">
+                        <div class="card">
+                            <div class="title">
+                                <span class="domain deleted">
+                                    <a href="{%- if domain.url -%}{{ domain.url }}{%- else -%}/{%- endif -%}" class="sold" {%- if domain.url -%}target="_blank"{%- endif -%}>{{ domain.domain }}</a>
+                                </span>
+                                <span class="price sold deleted">{{ domain.price }}</span>
+                            </div>
+                            <span class="desc sold deleted">{{ domain.description }}</span>
+                        </div>
+                    </div>
+                    {%- endfor -%}
+                {%- endif -%}
+            </div>
+        </div>
+        {%- endif -%}
 
         <!-- 联系方式 -->
+        {%- if site.contacts -%}
         <div class="contact">
             <div class="default">联系方式</div>
             <hr>
@@ -177,8 +208,10 @@
             {%- if forloop.last != true && site.badge == false -%}&nbsp;&nbsp;{%- endif -%}
             {%- endfor -%}
         </div>
+        {%- endif -%}
 
         <!-- 米表联盟 -->
+        {%- if site.links -%}
         <div class="links">
             <div class="default">米表联盟</div>
             <hr>
@@ -195,6 +228,7 @@
             {%- if forloop.last != true && site.badge == false -%}&nbsp;&nbsp;{%- endif -%}
             {%- endfor -%}
         </div>
+        {%- endif -%}
 
         <!-- 底部 -->
         <div class="footer">
