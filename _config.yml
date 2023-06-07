@@ -14,7 +14,7 @@ color:
   sold: gray
 
 # true: 标签模式, false: 文本模式
-badge: false
+badge: true
 
 # 公告
 # url: 可选, title 超链接地址
