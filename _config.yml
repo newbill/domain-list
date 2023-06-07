@@ -3,7 +3,7 @@
 # 2、英文 : 后要空一格, domains 和 tips 里的 - 代表分组, 不可省略
 
 domain: mibiao.vercel.app
-title: 萌客米表
+title: 米表
 #donate: 可选, 打赏链接, 完整的可访问链接
 
 # 对应四种颜色, 尽量选择 #123456 这种样式
@@ -78,4 +78,4 @@ contacts:
 # 米表联盟
 links:
   - url: https://midian.vercel.app
-    description: 萌客米表
+    description: 米表
